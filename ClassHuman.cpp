@@ -33,7 +33,31 @@ class Human
     ;
 };
 
+class Student: virtual public Human
+{
+    private:
+        string Discipline;
+        int Course;
+    public:
+        Student() // Constructor
+        {
+            Discipline = "none";
+            Course = 0;
+        }
 
+        Student(string discipline, int course) // Operator copy
+        {
+            Discipline = discipline;
+            Course = course;
+        }
+        // Get Something
+        string GetDiscipline() const { return Discipline; }
+        int GetCourse() const { return Course; }
+        // Set Something
+        void SetDiscipline(string newDiscipline) { Discipline = newDiscipline; }
+        void SetCourse(int newCourse) { Course = newCourse; }
+    ;
+};
 
 int main()
 {
