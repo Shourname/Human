@@ -4,11 +4,11 @@ using namespace std;
 
 class GameCharacter
 {
-    private:
+    public:
         string NameGame;
         string NickName;
         int Level;
-    public:
+
         GameCharacter() // Constructor
         {
             NameGame = "none";
