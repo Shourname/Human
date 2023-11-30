@@ -2,6 +2,63 @@
 #include <string>
 using namespace std;
 
+class IWeapon
+{
+    public:
+        void virtual Take() = 0;
+        void virtual Hit() = 0 ;
+        void virtual Brake() = 0;
+    ;
+};
+
+class Axe: public virtual IWeapon
+{
+    int Strength;
+    bool Type; // 0 - ближний бой; 1 - дальний бой;
+
+    void Take() override
+    {
+        Strength = 100;
+        Type = false;
+        cout << "You took Axe." << endl;
+    }
+    void Hit() override
+    {
+        Strength -= 2;
+        cout << "Bang!" << endl;
+    }
+    void Brake() override
+    {
+        Strength = 0;
+        cout << "You broke Axe." << endl;
+    }
+};
+
+class Bow: public virtual IWeapon
+{
+    int Strength;
+    bool Type; // 0 - ближний бой; 1 - дальний бой;
+
+    void Take() override
+    {
+        Strength = 100;
+        Type = true;
+        cout << "You took Bow." << endl;
+    }
+
+    void Hit() override
+    {
+        Strength -= 1;
+        cout << "Fhooooooosh!" << endl;
+    }
+    void Brake() override
+    {
+        Strength = 0;
+        cout << "You broke Bow." << endl;
+    }
+};
+
+
 class GameCharacter
 {
     public:
@@ -66,6 +123,10 @@ class Human
         void SetName(string newName) { Name = newName; }
         void SetSurname(string newSurname) { Surname = newSurname; }
         void SetAge(int newAge) { Age = newAge; }
+
+        void TakeWeapon(IWeapon & weapon) { weapon.Take(); }
+        void HitWeapon(IWeapon & weapon) { weapon.Hit(); }
+        void BrokeWeapon(IWeapon & weapon) { weapon.Brake(); }
     ;
 };
 
@@ -189,6 +250,17 @@ int main()
 
     Student B912206("Program Engineering", 2);
 
+    Axe LittleAxe;
+    Bow SimpleBow;
+
+    humanOne.TakeWeapon(LittleAxe);
+    humanOne.HitWeapon(LittleAxe);
+    humanOne.BrokeWeapon(LittleAxe);
+
+    humanTwo.TakeWeapon(SimpleBow);
+    humanTwo.HitWeapon(SimpleBow);
+    humanTwo.BrokeWeapon(SimpleBow);
+    
     CharacterHuman Aslagor;
     Aslagor.SetName("Borge");
     Aslagor.SetLevel(10);
