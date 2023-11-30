@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Human
+{
+    private:
+        string Name;
+        string Surname;
+        int Age;
+    public:
+        Human(string name, string surname, int age) // Constructor
+        {
+            Age = age;
+            Surname = surname;
+            Name = name;
+        }
+        // Get Something
+        string GetName() const { return Name; }
+        string GetSurname() const { return Surname; }
+        int GetAge() const { return Age; }
+        // Set Something
+        void SetName(string newName) { Name = newName; }
+        void SetSurname(string newSurname) { Surname = newSurname; }
+        void SetAge(int newAge) { Age = newAge; }
+    ;
+};
+
+
+
+int main()
+{
+    Human humanOne("Jorge", "Vanovski", 34);
+    Human humanTwo("Bera", "Tarlova", 22);
+}
