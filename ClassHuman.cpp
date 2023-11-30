@@ -30,6 +30,11 @@ class GameCharacter
         void SetNamegame(string newNamegame) { NameGame = newNamegame; }
         void SetNickname(string newNickname) { NickName = newNickname; }
         void SetLevel(int newLevel) { Level = newLevel; }
+
+        virtual void BattleCry()
+        {
+            cout << "none" << endl;
+        }
     ;
 };
 
@@ -113,6 +118,11 @@ class CharacterHuman: public GameCharacter, public Human
         // Set Something
         void SetHitpoint(int newHitpoint) { Hitpoint = newHitpoint; }
         void SetArmor(int newArmor) { Armor = newArmor; }
+
+        void BattleCry() override
+        {
+            cout << "For Azeroth!" << endl;
+        }
     ;
 };
 
@@ -138,6 +148,11 @@ class CharacterOrc: public GameCharacter, public Student
         // Set Somthing
         void SetRang(string newRang) { Rang = newRang; }
         void SetWeapon(string newWeapon) { Weapon = newWeapon; }
+
+        void BattleCry() override
+        {
+            cout << "Lok tar!" << endl;
+        }
     ;
 };
 
@@ -186,4 +201,9 @@ int main()
     Artes.SetRang("Paladin");
     Artes.SetDeathdegree(100);
     Artes.SetStrong('A');
+
+    GameCharacter *character1 = &Trall;
+    character1->BattleCry();
+    GameCharacter *character2 = &Aslagor;
+    character2->BattleCry();
 }
