@@ -2,6 +2,34 @@
 #include <string>
 using namespace std;
 
+class GameCharacter
+{
+    private:
+        string NameGame;
+        string NickName;
+        int Level;
+    public:
+        GameCharacter() // Constructor
+        {
+            NameGame = "none";
+            NickName = "none";
+            Level = 0;
+        }
+
+        GameCharacter(string namegame, string nickname, int level) // Operator copy
+        {
+            NameGame = namegame;
+            NickName = nickname;
+            Level = level;
+        }
+        // Get Something
+        string GetNamegame() const { return NameGame; }
+        string GetNickname() const { return NickName; }
+        int GetLevel() const { return Level; }
+        // Set Something
+    ;
+};
+
 class Human
 {
     private:
@@ -63,4 +91,6 @@ int main()
 {
     Human humanOne("Jorge", "Vanovski", 34);
     Human humanTwo("Bera", "Tarlova", 22);
+
+    Student B912206("Program Engineering", 2);
 }
