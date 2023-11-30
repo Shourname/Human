@@ -141,6 +141,32 @@ class CharacterOrc: public GameCharacter, public Student
     ;
 };
 
+class KnightDeath: virtual public CharacterHuman, virtual public CharacterOrc
+{
+    private:
+        int Deathdegree;
+        char Strong;
+    public:
+        KnightDeath() // Constructor
+        {
+            Deathdegree = 1;
+            Strong = 'F';
+        }
+
+        KnightDeath(int deathdegree, char strong) // Operator copy
+        {
+            Deathdegree = deathdegree;
+            Strong = strong;
+        }
+        // Get Something
+        int GetDeathdegree() { return Deathdegree; }
+        char GetStrong() { return Strong; }
+        // Set Something
+        void SetDeathdegree(int newDeathdegree) { Deathdegree = newDeathdegree; }
+        void SetStrong(char newStrong) { Strong = newStrong; }
+    ;
+};
+
 int main()
 {
     Human humanOne("Jorge", "Vanovski", 34);
@@ -155,4 +181,9 @@ int main()
     CharacterOrc Trall;
     Trall.SetName("Vogdy");
     Trall.SetLevel(55);
+
+    KnightDeath Artes;
+    Artes.SetRang("Paladin");
+    Artes.SetDeathdegree(100);
+    Artes.SetStrong('A');
 }
