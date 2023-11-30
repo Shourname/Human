@@ -27,6 +27,9 @@ class GameCharacter
         string GetNickname() const { return NickName; }
         int GetLevel() const { return Level; }
         // Set Something
+        void SetNamegame(string newNamegame) { NameGame = newNamegame; }
+        void SetNickname(string newNickname) { NickName = newNickname; }
+        void SetLevel(int newLevel) { Level = newLevel; }
     ;
 };
 
@@ -113,6 +116,31 @@ class CharacterHuman: public GameCharacter, public Human
     ;
 };
 
+class CharacterOrc: public GameCharacter, public Student
+{
+    private:
+        string Rang;
+        string Weapon;
+    public:
+        CharacterOrc() // Constructor
+        {
+            Rang = "Poor";
+            Weapon = "Stone";
+        }
+        CharacterOrc(string rang, string weapon) // Operator copy
+        {
+            Rang = rang;
+            Weapon = weapon;
+        }
+        // Get Something
+        string GetRang() { return Rang; }
+        string GetWeapon() { return Weapon; }
+        // Set Somthing
+        void SetRang(string newRang) { Rang = newRang; }
+        void SetWeapon(string newWeapon) { Weapon = newWeapon; }
+    ;
+};
+
 int main()
 {
     Human humanOne("Jorge", "Vanovski", 34);
@@ -120,6 +148,11 @@ int main()
 
     Student B912206("Program Engineering", 2);
 
-    CharacterHuman Warrior;
-    Warrior.SetName("Borge");
+    CharacterHuman Aslagor;
+    Aslagor.SetName("Borge");
+    Aslagor.SetLevel(10);
+
+    CharacterOrc Trall;
+    Trall.SetName("Vogdy");
+    Trall.SetLevel(55);
 }
