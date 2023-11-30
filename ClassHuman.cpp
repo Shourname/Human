@@ -87,10 +87,39 @@ class Student: virtual public Human
     ;
 };
 
+class CharacterHuman: public GameCharacter, public Human
+{
+    private:
+        int Hitpoint;
+        int Armor;
+    public:
+        CharacterHuman() // Constructor
+        {
+            Hitpoint = 100;
+            Armor = 100;
+        }
+
+        CharacterHuman(int hitpoint, int armor) // Operator copy
+        {
+            Hitpoint = hitpoint;
+            Armor = armor;
+        }
+        // Get Something
+        int GetHitpoint() { return Hitpoint; }
+        int GetArmor() { return Armor; }
+        // Set Something
+        void SetHitpoint(int newHitpoint) { Hitpoint = newHitpoint; }
+        void SetArmor(int newArmor) { Armor = newArmor; }
+    ;
+};
+
 int main()
 {
     Human humanOne("Jorge", "Vanovski", 34);
     Human humanTwo("Bera", "Tarlova", 22);
 
     Student B912206("Program Engineering", 2);
+
+    CharacterHuman Warrior;
+    Warrior.SetName("Borge");
 }
