@@ -9,7 +9,14 @@ class Human
         string Surname;
         int Age;
     public:
-        Human(string name, string surname, int age) // Constructor
+        Human() // Constructor
+        {
+            Age = 1;
+            Surname = "Ivanov";
+            Name = "Ivan";
+        }
+        
+        Human(string name, string surname, int age) // Operator copy
         {
             Age = age;
             Surname = surname;
